@@ -1,4 +1,4 @@
 package net.weeek.denisbaranov;
 
-public class AnyTest {
+public class SiteMain {
 }
