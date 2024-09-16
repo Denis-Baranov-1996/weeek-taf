@@ -1,4 +1,4 @@
 package net.weeek.denisbaranov;
 
-public class SiteMain {
+public class SiteWeeekMain {
 }
