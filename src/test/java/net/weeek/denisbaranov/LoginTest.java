@@ -27,7 +27,7 @@ public class LoginTest {
         loginPage.clickButtonEnter();
 
         String actualTextPassword = loginPage.errorPasswordAndEmailText();
-        String expectedTextPassword = "Укажите пароль";
+        String expectedTextPassword = "Необходимо заполнить все подсвеченные поля";
 
         Assertions.assertEquals(expectedTextPassword,actualTextPassword);
     }

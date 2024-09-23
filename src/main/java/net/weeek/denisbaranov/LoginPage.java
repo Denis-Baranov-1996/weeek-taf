@@ -13,24 +13,28 @@ public class LoginPage {
     }
 
     public void clickButtonEnter()  {
+        Waiters.waitFor(4);
         By buttonEnterBy = By.xpath(LoginPageXPath.BUTTON_ENTER_XPATH);
         WebElement buttonEnter = driver.findElement(buttonEnterBy);
         buttonEnter.click();
     }
 
     public void inputEmail(String email) {
+        Waiters.waitFor(4);
         By inputEmailBy = By.xpath(LoginPageXPath.INPUT_EMAIL_XPATH);
         WebElement inputEmail = driver.findElement(inputEmailBy);
         inputEmail.sendKeys(email);
     }
 
     public void inputPassword(String password) {
+        Waiters.waitFor(4);
         By inputPasswordBy = By.xpath(LoginPageXPath.INPUT_PASSWORD_XPATH);
         WebElement inputPassword = driver.findElement(inputPasswordBy);
         inputPassword.sendKeys(password);
     }
 
     public String errorPasswordAndEmailText() {
+        Waiters.waitFor(4);
         By errorPasswordBy = By.xpath(LoginPageXPath.ERROR_EMAIL_AND_PASSWORD_XPATH);
         WebElement getErrorPassword = driver.findElement(errorPasswordBy);
         return getErrorPassword.getText();
