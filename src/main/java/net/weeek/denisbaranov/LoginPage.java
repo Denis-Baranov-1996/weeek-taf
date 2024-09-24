@@ -33,11 +33,38 @@ public class LoginPage {
         inputPassword.sendKeys(password);
     }
 
-    public String errorPasswordAndEmailText() {
+    public String emptyEmailAndPasswordText() {
         Waiters.waitFor(4);
-        By errorPasswordBy = By.xpath(LoginPageXPath.ERROR_EMAIL_AND_PASSWORD_XPATH);
+        By errorEmptyEMailAndPasswordBy = By.xpath(LoginPageXPath.ERROR_ENTER_EMPTY_EMAIL_AND_ENTER_EMPTY_PASSWORD_XPATH);
+        WebElement getErrorEmailAndPassword = driver.findElement(errorEmptyEMailAndPasswordBy);
+        return getErrorEmailAndPassword.getText();
+    }
+
+    public String errorPasswordText() {
+        Waiters.waitFor(4);
+        By errorPasswordBy = By.xpath(LoginPageXPath.ERROR_ENTER_EMAIL_WITHOUT_ENTER_PASSWORD_XPATH);
         WebElement getErrorPassword = driver.findElement(errorPasswordBy);
         return getErrorPassword.getText();
+    }
+
+    public String errorEmailText() {
+        Waiters.waitFor(4);
+        By errorEmailBy = By.xpath(LoginPageXPath.ERROR_ENTER_PASSWORD_WITHOUT_ENTER_EMAIL_XPATH);
+        WebElement getErrorEmail = driver.findElement(errorEmailBy);
+        return getErrorEmail.getText();
+    }
+
+    public String notExistEmailAndPasswordText() {
+        Waiters.waitFor(4);
+        By errorNotExistPasswordAndEmailBy = By.xpath(LoginPageXPath.ERROR_ENTER_EMAIL_AND_PASSWORD_XPATH);
+        WebElement getNotExistErrorPasswordAndEmail = driver.findElement(errorNotExistPasswordAndEmailBy);
+        return getNotExistErrorPasswordAndEmail.getText();
+    }
+    public String wrongTextEmail() {
+        Waiters.waitFor(4);
+        By errorWrongEmailTextBy = By.xpath(LoginPageXPath.ERROR_ENTER_EMAIL_TEXT_XPATH);
+        WebElement getErrorWrongEmailText = driver.findElement(errorWrongEmailTextBy);
+        return getErrorWrongEmailText.getText();
     }
 
 }
