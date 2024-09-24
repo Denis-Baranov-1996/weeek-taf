@@ -21,10 +21,4 @@ public class HomePage {
         WebElement buttonLogin = driver.findElement(buttonLoginBy);
         buttonLogin.click();
     }
-
-    public void clickButtonAbout() {
-        By buttonAboutBy = By.xpath(HomePageXPath.BUTTON_ABOUT_XPATH);
-        WebElement buttonAbout = driver.findElement(buttonAboutBy);
-        buttonAbout.click();
-    }
 }
