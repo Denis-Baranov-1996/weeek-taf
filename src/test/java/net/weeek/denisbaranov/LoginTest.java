@@ -1,5 +1,7 @@
 package net.weeek.denisbaranov;
 
+import net.weeek.denisbaranov.driver.DriverSingleton;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +18,7 @@ public class LoginTest {
         loginPage.inputPassword("");
         loginPage.clickButtonEnter();
 
-        String actualTextPassword = loginPage.emptyEmailAndPasswordText();
+        String actualTextPassword = loginPage.errorEmptyEmailOrPasswordText();
         String expectedTextPassword = "Необходимо заполнить все подсвеченные поля";
 
         Assertions.assertEquals(expectedTextPassword,actualTextPassword);
@@ -33,7 +35,7 @@ public class LoginTest {
         loginPage.inputPassword("");
         loginPage.clickButtonEnter();
 
-        String actualTextPassword = loginPage.errorPasswordText();
+        String actualTextPassword = loginPage.errorEmptyEmailOrPasswordText();
         String expectedTextPassword = "Необходимо заполнить все подсвеченные поля";
 
         Assertions.assertEquals(expectedTextPassword,actualTextPassword);
@@ -51,14 +53,14 @@ public class LoginTest {
         loginPage.inputPassword("123456");
         loginPage.clickButtonEnter();
 
-        String actualTextPassword = loginPage.errorEmailText();
+        String actualTextPassword = loginPage.errorEmptyEmailOrPasswordText();
         String expectedTextPassword = "Необходимо заполнить все подсвеченные поля";
 
         Assertions.assertEquals(expectedTextPassword,actualTextPassword);
     }
 
     @Test
-    public void testLoginWithNotExistTextOfPasswordAndEmail() {
+    public void testLoginWithWrongTextOfEmailAndPassword() {
 
         HomePage homePage = new HomePage();
         homePage.open();
@@ -69,7 +71,7 @@ public class LoginTest {
         loginPage.inputPassword("123456)))");
         loginPage.clickButtonEnter();
 
-        String actualTextPassword = loginPage.notExistEmailAndPasswordText();
+        String actualTextPassword = loginPage.errorTextEmailOrErrorTextEmailAndPassword();
         String expectedTextPassword = "Неверный Email или пароль.";
 
         Assertions.assertEquals(expectedTextPassword,actualTextPassword);
@@ -83,13 +85,18 @@ public class LoginTest {
         homePage.clickButtonLogin();
 
         LoginPage loginPage = new LoginPage();
-        loginPage.inputEmail("123456");
+        loginPage.inputEmail("@.by");
         loginPage.inputPassword("123456)))");
         loginPage.clickButtonEnter();
 
-        String actualTextPassword = loginPage.wrongTextEmail();
+        String actualTextPassword = loginPage.errorTextEmailOrErrorTextEmailAndPassword();
         String expectedTextPassword = "Email введён некорректно";
 
         Assertions.assertEquals(expectedTextPassword,actualTextPassword);
+    }
+
+    @AfterEach
+    public void close() {
+        DriverSingleton.closeDriver();
     }
 }
