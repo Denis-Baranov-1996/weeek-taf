@@ -68,7 +68,7 @@ public class LoginTest {
 
         LoginPage loginPage = new LoginPage();
         loginPage.inputEmail("test@test.by");
-        loginPage.inputPassword("123456)))");
+        loginPage.inputPassword("123456");
         loginPage.clickButtonEnter();
 
         String actualTextPassword = loginPage.errorTextEmailOrErrorTextEmailAndPassword();
