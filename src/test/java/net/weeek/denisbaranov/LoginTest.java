@@ -60,7 +60,7 @@ public class LoginTest {
     }
 
     @Test
-    public void testLoginWithWrongTextOfEmailAndPassword() {
+    public void testLoginWithNotExistTextOfEmailAndPassword() {
 
         HomePage homePage = new HomePage();
         homePage.open();
