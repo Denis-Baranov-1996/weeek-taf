@@ -1,6 +1,6 @@
 # News
 
-Testing web-application (UI and API) login page weeek.net
+Testing UI and API login page  of  web-application weeek.net
 
 ## UI
 ### Login form
