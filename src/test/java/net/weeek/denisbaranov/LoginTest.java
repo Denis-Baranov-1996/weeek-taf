@@ -1,18 +1,21 @@
 package net.weeek.denisbaranov;
 
 import net.weeek.denisbaranov.driver.DriverSingleton;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import net.weeek.denisbaranov.pages.HomePage;
+import net.weeek.denisbaranov.pages.LoginPage;
+import org.junit.jupiter.api.*;
 
-public class LoginTest {
-    @Test
-    public void testLoginWithEmptyData() {
+public class LoginTest  {
 
+    @BeforeEach
+    public void openLoginPage() {
         HomePage homePage = new HomePage();
         homePage.open();
         homePage.clickButtonLogin();
+    }
 
+    @Test
+    public void testLoginWithEmptyData() {
         LoginPage loginPage = new LoginPage();
         loginPage.inputEmail("");
         loginPage.inputPassword("");
@@ -23,12 +26,9 @@ public class LoginTest {
 
         Assertions.assertEquals(expectedTextPassword,actualTextPassword);
     }
+
     @Test
     public void testLoginWithEmptyTextOfPassword() {
-
-        HomePage homePage = new HomePage();
-        homePage.open();
-        homePage.clickButtonLogin();
 
         LoginPage loginPage = new LoginPage();
         loginPage.inputEmail("test@test.by");
@@ -44,10 +44,6 @@ public class LoginTest {
     @Test
     public void testLoginWithEmptyTextOfEmail() {
 
-        HomePage homePage = new HomePage();
-        homePage.open();
-        homePage.clickButtonLogin();
-
         LoginPage loginPage = new LoginPage();
         loginPage.inputEmail("");
         loginPage.inputPassword("123456");
@@ -62,13 +58,9 @@ public class LoginTest {
     @Test
     public void testLoginWithNotExistTextOfEmailAndPassword() {
 
-        HomePage homePage = new HomePage();
-        homePage.open();
-        homePage.clickButtonLogin();
-
         LoginPage loginPage = new LoginPage();
-        loginPage.inputEmail("test@test.by");
-        loginPage.inputPassword("123456");
+        loginPage.inputEmail("tester123@testers.by");
+        loginPage.inputPassword("123456@#$%^&");
         loginPage.clickButtonEnter();
 
         String actualTextPassword = loginPage.errorTextEmailOrErrorTextEmailAndPassword();
@@ -80,13 +72,9 @@ public class LoginTest {
     @Test
     public void testLoginWithWrongTextOfEmail() {
 
-        HomePage homePage = new HomePage();
-        homePage.open();
-        homePage.clickButtonLogin();
-
         LoginPage loginPage = new LoginPage();
-        loginPage.inputEmail("@.by");
-        loginPage.inputPassword("123456)))");
+        loginPage.inputEmail("!@№$%^&?*.by");
+        loginPage.inputPassword("12qwasZ*");
         loginPage.clickButtonEnter();
 
         String actualTextPassword = loginPage.errorTextEmailOrErrorTextEmailAndPassword();

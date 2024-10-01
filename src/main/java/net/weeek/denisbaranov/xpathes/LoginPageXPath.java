@@ -1,4 +1,4 @@
-package net.weeek.denisbaranov;
+package net.weeek.denisbaranov.xpathes;
 
 public class LoginPageXPath {
     public static final String INPUT_EMAIL_XPATH = "//input[@placeholder='Электронная почта']";

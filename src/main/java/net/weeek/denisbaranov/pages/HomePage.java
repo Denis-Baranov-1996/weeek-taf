@@ -1,5 +1,6 @@
-package net.weeek.denisbaranov;
+package net.weeek.denisbaranov.pages;
 
+import net.weeek.denisbaranov.xpathes.HomePageXPath;
 import net.weeek.denisbaranov.driver.DriverSingleton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
