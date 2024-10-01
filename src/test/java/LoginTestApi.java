@@ -21,7 +21,7 @@ public class LoginTestApi {
 
     @Test
     public void testLoginWithEmptyEmailAndPasswordAndRememberTrue() {
-        given().headers(LoginRequest.getHeaders()).body(LoginRequest.getBody("","", true)).
+        given().headers(LoginRequest.getHeaders()).body(LoginRequest.getBody("", "", true)).
                 when().post(LoginRequest.LOGIN_URL).
                 then().statusCode(422)
                 .body("success", equalTo(false))
@@ -33,7 +33,7 @@ public class LoginTestApi {
 
     @Test
     public void testLoginWithEmptyEmailAndEnterPasswordAndRememberTrue() {
-        given().headers(LoginRequest.getHeaders()).body(LoginRequest.getBody("","123456", true)).
+        given().headers(LoginRequest.getHeaders()).body(LoginRequest.getBody("", "123456", true)).
                 when().post(LoginRequest.LOGIN_URL).
                 then().statusCode(422)
                 .body("success", equalTo(false))
@@ -44,7 +44,7 @@ public class LoginTestApi {
 
     @Test
     public void testLoginWithEnterEmailAndEmptyPasswordAndRememberTrue() {
-        given().headers(LoginRequest.getHeaders()).body(LoginRequest.getBody("test@test.by","", true)).
+        given().headers(LoginRequest.getHeaders()).body(LoginRequest.getBody("test@test.by", "", true)).
                 when().post(LoginRequest.LOGIN_URL).
                 then().statusCode(422)
                 .body("success", equalTo(false))
@@ -55,7 +55,7 @@ public class LoginTestApi {
 
     @Test
     public void testLoginWithEnterEmailAndPasswordAndRememberTrue() {
-        given().headers(LoginRequest.getHeaders()).body(LoginRequest.getBody("test@test.by","123456", true)).
+        given().headers(LoginRequest.getHeaders()).body(LoginRequest.getBody("test@test.by", "123456", true)).
                 when().post(LoginRequest.LOGIN_URL).
                 then().statusCode(422)
                 .body("success", equalTo(false))
@@ -66,7 +66,7 @@ public class LoginTestApi {
 
     @Test
     public void testLoginWithEnterEmailAndPasswordAndRememberFalse() {
-        given().headers(LoginRequest.getHeaders()).body(LoginRequest.getBody("test@test.by","123456", false)).
+        given().headers(LoginRequest.getHeaders()).body(LoginRequest.getBody("test@test.by", "123456", false)).
                 when().post(LoginRequest.LOGIN_URL).
                 then().statusCode(422)
                 .body("success", equalTo(false))
@@ -77,7 +77,7 @@ public class LoginTestApi {
 
     @Test
     public void testLoginWithEmailAndPasswordAndRememberFalse() {
-        given().headers(LoginRequest.getHeaders()).body(LoginRequest.getBody("","", false)).
+        given().headers(LoginRequest.getHeaders()).body(LoginRequest.getBody("", "", false)).
                 when().post(LoginRequest.LOGIN_URL).
                 then().statusCode(422)
                 .body("success", equalTo(false))
@@ -89,7 +89,7 @@ public class LoginTestApi {
 
     @Test
     public void testLoginWithEnterEmailAndEmptyPasswordAndRememberFalse() {
-        given().headers(LoginRequest.getHeaders()).body(LoginRequest.getBody("test@test.by","", false)).
+        given().headers(LoginRequest.getHeaders()).body(LoginRequest.getBody("test@test.by", "", false)).
                 when().post(LoginRequest.LOGIN_URL).
                 then().statusCode(422)
                 .body("success", equalTo(false))
@@ -100,7 +100,7 @@ public class LoginTestApi {
 
     @Test
     public void testLoginWithEmptyEmailAndEnterPasswordAndRememberFalse() {
-        given().headers(LoginRequest.getHeaders()).body(LoginRequest.getBody("","123456", false)).
+        given().headers(LoginRequest.getHeaders()).body(LoginRequest.getBody("", "123456", false)).
                 when().post(LoginRequest.LOGIN_URL).
                 then().statusCode(422)
                 .body("success", equalTo(false))
