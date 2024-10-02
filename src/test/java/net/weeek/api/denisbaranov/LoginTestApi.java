@@ -1,4 +1,5 @@
-import io.restassured.RestAssured;
+package net.weeek.api.denisbaranov;
+
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;

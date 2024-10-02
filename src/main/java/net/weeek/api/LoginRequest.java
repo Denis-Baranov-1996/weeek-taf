@@ -1,3 +1,5 @@
+package net.weeek.api;
+
 import java.util.HashMap;
 import java.util.Map;
 
