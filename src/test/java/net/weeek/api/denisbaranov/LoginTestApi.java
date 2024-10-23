@@ -1,5 +1,5 @@
 package net.weeek.api.denisbaranov;
-
+import net.weeek.api.LoginRequest;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -30,6 +30,7 @@ public class LoginTestApi {
                 .body("errors.email[0]", equalTo("The field is required."))
                 .body("errors.password[0]", equalTo("The field is required."))
                 .header("Content-Type", equalTo("application/json"));
+
     }
 
     @Test
